@@ -480,7 +480,7 @@ nav p {
   }
 
   .card img {
-    height: 13rem;
+    height: auto;
     width: 70%;
   }
   .sec_cards h4 {
