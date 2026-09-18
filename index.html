@@ -37,7 +37,7 @@
               <p id="quince_letter">Mis Quince</p>
             </div>
             <h2>Azcary Millan</h2>
-            <p id="date">13.03.26</p>
+            <p id="date">21.09.26</p>
             <div id="countdown">
               <div class="countdown-item countdown-item-days">
                 <div class="countdown-number"></div>
@@ -63,7 +63,7 @@
         </div>
       </section>
       <!--First message paragraph-->
-      <section class="container">
+      <section class="container soft-section">
         <div class="message">
           <p class="message_paragraph">
             Dejo un mundo atrás y entro a uno nuevo. Aunque a veces el miedo me
@@ -111,19 +111,20 @@
         </div>
       </section>
       <!--outfit section-->
-      <section class="container family_container">
+      <section class="container family_container soft-section show-fade">
         <div class="family-card card">
           <h3>Dress Code</h3>
           <p>Formal</p>
           <div class="card_img_container">
             <img
               class="img_card"
-              src="img/dress_dress.png"
+              src="img/dress_tsirt.png"
               alt="vestido de gala"
             />
             <img
+            style="margin-left: 2.5rem;"
               class="img_card"
-              src="img/dress_tsirt.png"
+              src="img/dress_dress.png"
               alt="vestido de gala"
             />
           </div>
@@ -138,10 +139,10 @@
         <h3 style="font-family: var(--great-sand); padding-bottom: 2rem">Posible regalo</h3>
         <div
           class="card gift_card"
-          style="width: 70vw; background-color: #fedfe5"
+          style="width: 70vw; background-color: #fff08a"
         >
-          <img class="img_card" src="img/sobre.png" alt="sobre logo" />
-          <p>Lluvia de sobres</p>
+          <img class="img_card" src="img/sobre.png" alt="sobre logo" style="height: auto"/>
+          <p>Regalos</p>
         </div>
       </section>
       <!--Caroucel-->
@@ -153,25 +154,13 @@
           <button class="carousel-btn prev">&#10094;</button>
           <div class="carousel-items">
             <div class="active">
-              <img src="img/her10.webp" alt="pending" />
+              <img src="img/her1.jpg" alt="pending" />
             </div>
             <div>
-              <img src="img/her3.webp" alt="pending" />
+              <img src="img/her3.jpg" alt="pending" />
             </div>
             <div>
-              <img src="img/her4.webp" alt="pending" />
-            </div>
-            <div>
-              <img src="img/her5.webp" alt="pending" />
-            </div>
-            <div>
-              <img src="img/her6.webp" alt="pending" />
-            </div>
-            <div>
-              <img src="img/her7.webp" alt="pending" />
-            </div>
-            <div>
-              <img src="img/her1.webp" alt="pending" />
+              <img src="img/her4.jpg" alt="pending" />
             </div>
           </div>
           <button class="carousel-btn next">&#10095;</button>
@@ -197,26 +186,15 @@
       <section class="container family_container confirmation-section" style="height: 100vh;">
         <div
           class="card gift_card"
-          style="width: 70vw; background-color: #fedfe5"
+          style="width: 70vw; background-color: #fdf4b6"
         >
-          <img class="img_card" src="img/what.png" alt="Liverpool logo" />
-          <a class="button" href="https://wa.me/5215650524273"
+          <img class="img_card" src="img/what.png" alt="Liverpool logo" style="height: auto;" />
+          <a class="button" href="https://wa.me/525531619855"
             >Confirma tu asistencia</a
           >
           <p>Es muy importante que la confirmes. Por favor</p>
         </div>
       </section>
-      <!--Music Player-->
-      <div id="music-player">
-        <audio
-          id="audio-player"
-          src="music/music sample.mp3"
-          type="audio/mpeg"
-          loop
-          autoplay
-        ></audio>
-        <button id="music-button" class="myButton">⏸️</button>
-      </div>
     </main>
 
     <footer>
@@ -224,71 +202,8 @@
         <p>Página Creada por Sebastian Gutiérrez García</p>
         <img src="img/bob.gif" alt="bob bailando" />
       </div>
-      <button id="scrollTopBtn" style="position:fixed;right:2vw;bottom:6vh;padding:1em 1.2em;font-size:1.2em;border-radius:50%;border:none;background:#e9a4c7;color:#fff;box-shadow:0 2px 8px #0003;cursor:pointer;z-index:1000;">↑</button>
+      <button id="scrollTopBtn" style="position:fixed;right:2vw;bottom:6vh;padding:1em 1.2em;font-size:1.2em;border-radius:50%;border:none;background:#fff5c0;color:#6e4000;box-shadow:0 2px 8px #0003;cursor:pointer;z-index:1000;">↑</button>
     </footer>
     <script type="module" src="app.js"></script>
-      <script>
-        // Botón para volver arriba
-        const scrollTopBtn = document.getElementById('scrollTopBtn');
-        scrollTopBtn.addEventListener('click', function() {
-          targetScroll = 0;
-          if (!isScrolling) {
-            isScrolling = true;
-            animateScroll();
-          }
-        });
-
-        // Scroll lento en toda la página
-        let targetScroll = window.scrollY;
-        let isScrolling = false;
-
-        function animateScroll() {
-          const currentScroll = window.scrollY;
-          const diff = targetScroll - currentScroll;
-          if (Math.abs(diff) > 1) {
-            window.scrollTo(0, currentScroll + diff * 0.08);
-            requestAnimationFrame(animateScroll);
-          } else {
-            window.scrollTo(0, targetScroll);
-            isScrolling = false;
-          }
-        }
-
-        window.addEventListener('wheel', function(e) {
-          e.preventDefault();
-          targetScroll += e.deltaY;
-          targetScroll = Math.max(0, Math.min(targetScroll, document.body.scrollHeight - window.innerHeight));
-          if (!isScrolling) {
-            isScrolling = true;
-            animateScroll();
-          }
-        }, { passive: false });
-
-        // Soporte para scroll lento en móviles (touch)
-        let lastTouchY = null;
-        window.addEventListener('touchstart', function(e) {
-          if (e.touches.length === 1) {
-            lastTouchY = e.touches[0].clientY;
-          }
-        }, { passive: false });
-
-        window.addEventListener('touchmove', function(e) {
-          if (e.touches.length === 1 && lastTouchY !== null) {
-            e.preventDefault();
-            let deltaY = lastTouchY - e.touches[0].clientY;
-            lastTouchY = e.touches[0].clientY;
-            targetScroll += deltaY;
-            targetScroll = Math.max(0, Math.min(targetScroll, document.body.scrollHeight - window.innerHeight));
-            if (!isScrolling) {
-              isScrolling = true;
-              animateScroll();
-            }
-          }
-        }, { passive: false });
-
-        window.addEventListener('touchend', function(e) {
-          lastTouchY = null;
-        });
-      </script>
   </body>
 </html>

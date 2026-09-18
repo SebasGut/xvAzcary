@@ -1,7 +1,7 @@
 // ...existing code...
 
 //clock//
-const targetDate = new Date("March 13, 2026 18:00:00").getTime();
+const targetDate = new Date("September 21, 2026 18:00:00").getTime();
 setInterval(() => {
   const now = new Date().getTime();
   const difference = targetDate - now;
@@ -24,23 +24,75 @@ setInterval(() => {
   ).textContent = seconds;
 }, 1000);
 
+ // Botón para volver arriba
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        scrollTopBtn.addEventListener('click', function() {
+          targetScroll = 0;
+          if (!isScrolling) {
+            isScrolling = true;
+            animateScroll();
+          }
+        });
+
+        // Scroll lento en toda la página
+        let targetScroll = window.scrollY;
+        let isScrolling = false;
+
+        function animateScroll() {
+          const currentScroll = window.scrollY;
+          const diff = targetScroll - currentScroll;
+          if (Math.abs(diff) > 1) {
+            window.scrollTo(0, currentScroll + diff * 0.08);
+            requestAnimationFrame(animateScroll);
+          } else {
+            window.scrollTo(0, targetScroll);
+            isScrolling = false;
+          }
+        }
+
+        window.addEventListener('wheel', function(e) {
+          e.preventDefault();
+          targetScroll += e.deltaY;
+          targetScroll = Math.max(0, Math.min(targetScroll, document.body.scrollHeight - window.innerHeight));
+          if (!isScrolling) {
+            isScrolling = true;
+            animateScroll();
+          }
+        }, { passive: false });
+
+        // Soporte para scroll lento en móviles (touch)
+        let lastTouchY = null;
+        window.addEventListener('touchstart', function(e) {
+          if (e.touches.length === 1) {
+            lastTouchY = e.touches[0].clientY;
+          }
+        }, { passive: false });
+
+        window.addEventListener('touchmove', function(e) {
+          if (e.touches.length === 1 && lastTouchY !== null) {
+            e.preventDefault();
+            let deltaY = lastTouchY - e.touches[0].clientY;
+            lastTouchY = e.touches[0].clientY;
+            targetScroll += deltaY;
+            targetScroll = Math.max(0, Math.min(targetScroll, document.body.scrollHeight - window.innerHeight));
+            if (!isScrolling) {
+              isScrolling = true;
+              animateScroll();
+            }
+          }
+        }, { passive: false });
+
+        window.addEventListener('touchend', function(e) {
+          lastTouchY = null;
+        });
+
 //button music
-const player = document.getElementById("audio-player");
-const buttonMusic = document.getElementById("music-button");
+
 const playWelcomeButton = document.getElementById("play_welcome_button");
 
-function toggleMusic() {
-  if (player.paused) {
-    player.play();
-    buttonMusic.textContent = "⏸️";
-  } else {
-    player.pause();
-    buttonMusic.textContent = "▶️";
-  }
-}
+
 
 function toggleMusicD() {
-  if (player.paused) player.play();
 
   const welcome = document.getElementById("welcome_mesagge");
   const glass = document.getElementById("glass_efect");
@@ -52,7 +104,6 @@ function toggleMusicD() {
   });
 }
 
-buttonMusic && buttonMusic.addEventListener("click", toggleMusic);
 playWelcomeButton && playWelcomeButton.addEventListener("click", toggleMusicD);
 
 // Initialize background reveal and carousel once
@@ -120,9 +171,9 @@ document.addEventListener("DOMContentLoaded", () => {
   onScroll();
 
   // register existing sections
-  initBackgroundReveal(".img-section", "img/bg-2.webp");
-  initBackgroundReveal(".img-section2", "img/bg-3.webp");
-  initBackgroundReveal(".img-section3", "img/bg-4.webp");
+  initBackgroundReveal(".img-section", "img/bg-2.jpg");
+  initBackgroundReveal(".img-section2", "img/bg-3.jpg");
+  initBackgroundReveal(".img-section3", "img/bg-4.jpg");
 
   // CAROUSEL
   const images = document.querySelectorAll('.carousel-items div');
