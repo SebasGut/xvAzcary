@@ -640,7 +640,8 @@ nav p {
 }
 
 .family_container h3 {
-  color: #f2801c;
+  /* color: #f2801c; */
+  color: #d10303;
   font-size: 3rem;
   margin-bottom: 1rem;
 }
@@ -914,7 +915,7 @@ iframe {
 #bg-layer {
   position: fixed;
   inset: 0;
-  background-image: url("../img/bg-1.jpg");
+  background-image: url("../img/bg-1.webp");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -996,7 +997,8 @@ iframe {
 .pre_img h2 {
   font-size: 15vw;
   font-family: var(--great-sand);
-  color: #f2801c;
+  /* color: #f2801c; */
+  color: #d10303;
 }
 
 #XV_letter {
@@ -1012,7 +1014,8 @@ iframe {
   margin-bottom: 4rem;
   font-size: 4rem;
   font-family: var(--great-sand);
-  color: #937157;
+  /* color: #935757; */
+  color: #722F37;
   position: relative;
   z-index: 2;
 }

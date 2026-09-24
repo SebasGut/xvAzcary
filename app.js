@@ -171,9 +171,9 @@ document.addEventListener("DOMContentLoaded", () => {
   onScroll();
 
   // register existing sections
-  initBackgroundReveal(".img-section", "img/bg-2.jpg");
-  initBackgroundReveal(".img-section2", "img/bg-3.jpg");
-  initBackgroundReveal(".img-section3", "img/bg-4.jpg");
+  initBackgroundReveal(".img-section", "img/bg-2.webp");
+  initBackgroundReveal(".img-section2", "img/bg-3.webp");
+  initBackgroundReveal(".img-section3", "img/bg-4.webp");
 
   // CAROUSEL
   const images = document.querySelectorAll('.carousel-items div');
