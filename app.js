@@ -87,12 +87,22 @@ setInterval(() => {
         });
 
 //button music
-
+const player = document.getElementById("audio-player");
+const buttonMusic = document.getElementById("music-button");
 const playWelcomeButton = document.getElementById("play_welcome_button");
 
-
+function toggleMusic() {
+  if (player.paused) {
+    player.play();
+    buttonMusic.textContent = "⏸️";
+  } else {
+    player.pause();
+    buttonMusic.textContent = "▶️";
+  }
+}
 
 function toggleMusicD() {
+  if (player.paused) player.play();
 
   const welcome = document.getElementById("welcome_mesagge");
   const glass = document.getElementById("glass_efect");
@@ -104,6 +114,7 @@ function toggleMusicD() {
   });
 }
 
+buttonMusic && buttonMusic.addEventListener("click", toggleMusic);
 playWelcomeButton && playWelcomeButton.addEventListener("click", toggleMusicD);
 
 // Initialize background reveal and carousel once
