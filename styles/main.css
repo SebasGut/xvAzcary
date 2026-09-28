@@ -983,7 +983,8 @@ iframe {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #000000;
+  color: #EFB810;
+  text-shadow: #eed37f 0px 0px 50px;
   padding-top: 12rem;
   height: 100vh;
   margin-bottom: -12rem;
@@ -998,13 +999,14 @@ iframe {
   font-size: 15vw;
   font-family: var(--great-sand);
   /* color: #f2801c; */
-  color: #d10303;
+  color: #EFB810;
+  text-shadow: #eed37f 0px 0px 50px;
 }
 
 #XV_letter {
   font-size: 10rem;
-  color: white;
-  text-shadow: #ffd000 2px 2px 4px;
+  color: #EFB810;
+  text-shadow: #eed37f 0px 0px 50px;
   position: relative;
   z-index: 1;
 }
@@ -1015,7 +1017,8 @@ iframe {
   font-size: 4rem;
   font-family: var(--great-sand);
   /* color: #935757; */
-  color: #722F37;
+  color: #EFB810;
+  text-shadow: #050505 2px 2px 3px;
   position: relative;
   z-index: 2;
 }
